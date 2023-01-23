@@ -1,34 +1,32 @@
 import React, {useCallback} from "react";
 import { observer } from "mobx-react-lite";
-import board from "../../store/boardState";
-import counter from "../../store/counterState";
+import {checkMoveAbility} from "../../utils";
+import { v4 as uuidv4 } from 'uuid';
 import Tile from "../../components/tile";
 import Board from "../../components/board";
-import { v4 as uuidv4 } from 'uuid';
-import {checkMoveAbility} from "../../utils";
+import boardState from "../../store/boardState";
+import counterState from "../../store/counterState";
 
 const BoardContainer = () => {
   const callbacks = {
     onTileClick: useCallback((tileIndex: number, tileValue: number) => {
-      const isMovable = checkMoveAbility(tileIndex, board.emptyIndex);
+      const isMovable = checkMoveAbility(tileIndex, boardState.emptyIndex);
       if(isMovable) {
-        board.replaceTiles(tileIndex, tileValue);
-        counter.increaseCounter();
+        boardState.replaceTiles(tileIndex, tileValue);
+        counterState.increaseCounter();
       }
-    }, [board.emptyIndex]),
+    }, [boardState.emptyIndex])
   };
 
-  const renders = {
-    tile: useCallback((item: number, index: number) => (
-      <Tile key={uuidv4()}
-            tileValue={item}
-            tileIndex={index}
-            emptyTileIndex={board.emptyIndex}
-            onClick={callbacks.onTileClick}/>
-    ), [board.emptyIndex]),
-  }
+  const renderTile = useCallback((item: number, index: number) => (
+    <Tile key={uuidv4()}
+          tileValue={item}
+          tileIndex={index}
+          emptyTileIndex={boardState.emptyIndex}
+          onClick={callbacks.onTileClick}/>
+  ), [boardState.emptyIndex]);
 
-  return <Board elements={board.tiles} render={renders.tile}/>;
+  return <Board elements={boardState.tiles} render={renderTile}/>;
 }
 
 export default observer(BoardContainer);
