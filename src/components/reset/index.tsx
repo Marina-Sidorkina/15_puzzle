@@ -5,4 +5,4 @@ const Reset = (props: {onClick: Function}) => {
   return <div className="reset" onClick={() => props.onClick()}>СБРОСИТЬ</div>
 }
 
-export default Reset;
+export default  React.memo(Reset);
