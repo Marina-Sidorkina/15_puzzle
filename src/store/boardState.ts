@@ -17,7 +17,7 @@ class BoardState {
 
   shuffleTiles() {
     this.tiles = shuffleArray(this.tiles);
-    this. emptyIndex = this.tiles.indexOf(16);
+    this.emptyIndex = this.tiles.indexOf(16);
   }
 
   resetTiles() {
