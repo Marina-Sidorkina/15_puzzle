@@ -12,9 +12,11 @@ import Result from "./components/result";
 const App = () => {
   const callbacks = {
     onLaunchClick: useCallback(() => {
-      boardState.shuffleTiles();
-      gameState.reset();
-      gameState.setInProcess(true);
+      if(!gameState.inProcess) {
+        boardState.shuffleTiles();
+        gameState.reset();
+        gameState.setInProcess(true);
+      }
     }, []),
     onResetClick: useCallback(() => {
       gameState.reset();
