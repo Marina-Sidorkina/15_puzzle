@@ -5,13 +5,18 @@ import Score from "../../components/score";
 import gameState from "../../store/gameState";
 
 const ScoreContainer = () => {
+
   useEffect(() => {
-    let timerIndex: NodeJS.Timer;
+    let timerIndex: NodeJS.Timer | null = null;
 
     if (gameState.inProcess) timerIndex = setInterval(() => gameState.increaseTimer(), 1000);
+    if (!gameState.inProcess && gameState.winner && timerIndex) clearInterval(timerIndex);
 
-    return () => clearInterval(timerIndex);
+    return () => {
+      if (timerIndex) clearInterval(timerIndex);
+    };
   }, [gameState.inProcess]);
+
 
   const timerValue = useMemo(() => {
     return getFormattedTime(

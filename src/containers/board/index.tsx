@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import { observer } from "mobx-react-lite";
-import {checkMoveAbility} from "../../utils";
+import {checkMoveAbility, checkNumbersOrder} from "../../utils";
 import { v4 as uuidv4 } from 'uuid';
 import Tile from "../../components/tile";
 import Board from "../../components/board";
@@ -11,9 +11,15 @@ const BoardContainer = () => {
   const callbacks = {
     onTileClick: useCallback((tileIndex: number, tileValue: number) => {
       const isMovable = checkMoveAbility(tileIndex, boardState.emptyIndex);
+
       if(isMovable && gameState.inProcess) {
         boardState.replaceTiles(tileIndex, tileValue);
         gameState.increaseCounter();
+
+        if(checkNumbersOrder(boardState.tiles)) {
+          gameState.setWinner();
+          gameState.setInProcess(false);
+        }
       }
     }, [boardState.emptyIndex])
   };

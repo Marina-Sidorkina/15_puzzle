@@ -1,0 +1,24 @@
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 310px;
+  height: 310px;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid #444c56;
+  border-radius: 2px;
+  background: linear-gradient(to left, #111111, #102027, #111111, #102027, #111111, #102027, #111111, #102027);
+  color: #acbac7;
+  font-size: 24px;
+  font-weight: 700;
+
+  &-item {
+    text-align: center;
+
+    &:first-child {
+      margin-bottom: 15px;
+    }
+  }
+}
