@@ -6,12 +6,17 @@ import ScoreContainer from "./containers/score";
 import Layout from "./components/layout";
 import boardState from "./store/boardState";
 import gameState from "./store/gameState";
+import Reset from "./components/reset";
 
 const App = () => {
   const callbacks = {
     onLaunchClick: useCallback(() => {
       boardState.shuffleTiles();
       gameState.setInProcess(true);
+    }, []),
+    onResetClick: useCallback(() => {
+      boardState.shuffleTiles();
+      gameState.setInProcess(false);
     }, [])
   };
 
@@ -20,6 +25,7 @@ const App = () => {
       <BoardContainer />
       <Launch onClick={callbacks.onLaunchClick} />
       <ScoreContainer />
+      <Reset onClick={() => {}}/>
     </Layout>
   )
 };

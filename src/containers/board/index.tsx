@@ -23,7 +23,8 @@ const BoardContainer = () => {
           tileValue={item}
           tileIndex={index}
           emptyTileIndex={boardState.emptyIndex}
-          onClick={callbacks.onTileClick}/>
+          onClick={callbacks.onTileClick}
+          inProcess={gameState.inProcess}/>
   ), [boardState.emptyIndex]);
 
   return <Board elements={boardState.tiles} render={renderTile}/>;

@@ -6,6 +6,7 @@ type TProps = {
   tileIndex: number;
   emptyTileIndex: number;
   onClick: Function;
+  inProcess: boolean;
 }
 
 const Tile = (props: TProps) => {
@@ -13,7 +14,7 @@ const Tile = (props: TProps) => {
   let classValue = check ? 'tile-element tile-element_zero' : 'tile-element';
 
   return (
-    <div className="tile" onClick={() => {props.onClick(props.tileIndex, props.tileValue)}}>
+    <div className={props.inProcess ? 'tile' : 'tile tile_blocked'} onClick={() => {props.onClick(props.tileIndex, props.tileValue)}}>
       <div className={classValue}>
         {check ? '' : props.tileValue}
       </div>

@@ -5,6 +5,10 @@
   padding: 0;
   margin: 0;
 
+  &_blocked {
+    border: 0.5px solid #b40d2c;
+  }
+
   &-element {
     width: 65px;
     height: 65px;
