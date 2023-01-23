@@ -2,26 +2,24 @@ import React, {useEffect, useMemo} from "react";
 import {observer} from "mobx-react-lite";
 import {getFormattedTime} from "../../utils";
 import Score from "../../components/score";
-import counterState from "../../store/counterState";
-import timerState from "../../store/timerState";
+import gameState from "../../store/gameState";
 
 const ScoreContainer = () => {
   useEffect(() => {
-    const timerIndex = setInterval(() => timerState.increaseTimer(), 1000);
+    const timerIndex = setInterval(() => gameState.increaseTimer(), 1000);
 
     return () => clearInterval(timerIndex);
   }, []);
 
   const timerValue = useMemo(() => {
     return getFormattedTime(
-      timerState.secondsPassed,
-      timerState.minutesPassed,
-      timerState.hoursPassed
+      gameState.secondsPassed,
+      gameState.minutesPassed,
+      gameState.hoursPassed
     );
-  }, [timerState.secondsPassed, timerState.minutesPassed, timerState.hoursPassed])
+  }, [gameState.secondsPassed, gameState.minutesPassed, gameState.hoursPassed])
 
-  return <Score timerValue={timerValue} counterValue={counterState.movesCount}/>
-
+  return <Score timerValue={timerValue} counterValue={gameState.movesCount}/>
 }
 
 export default observer(ScoreContainer);

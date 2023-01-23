@@ -13,6 +13,10 @@ class BoardState {
     this.tiles.splice(tileIndex, 1, 16);
     this.emptyIndex = tileIndex;
   }
+
+  shuffleTiles() {
+
+  }
 }
 
 export default new BoardState();

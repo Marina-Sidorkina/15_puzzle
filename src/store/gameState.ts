@@ -1,13 +1,23 @@
 import { makeAutoObservable } from "mobx";
 import {getTime} from "../utils";
 
-class TimerState {
+class GameState {
+  winner = false;
+  movesCount = 0;
   secondsPassed = 0;
   minutesPassed = 0;
   hoursPassed = 0;
 
   constructor() {
     makeAutoObservable(this);
+  }
+
+  setWinner() {
+    this.winner = true;
+  }
+
+  increaseCounter() {
+    this.movesCount += 1;
   }
 
   increaseTimer() {
@@ -19,4 +29,4 @@ class TimerState {
   }
 }
 
-export default new TimerState();
+export default new GameState();

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Tile from "../../components/tile";
 import Board from "../../components/board";
 import boardState from "../../store/boardState";
-import counterState from "../../store/counterState";
+import gameState from "../../store/gameState";
 
 const BoardContainer = () => {
   const callbacks = {
@@ -13,7 +13,7 @@ const BoardContainer = () => {
       const isMovable = checkMoveAbility(tileIndex, boardState.emptyIndex);
       if(isMovable) {
         boardState.replaceTiles(tileIndex, tileValue);
-        counterState.increaseCounter();
+        gameState.increaseCounter();
       }
     }, [boardState.emptyIndex])
   };
