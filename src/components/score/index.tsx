@@ -1,8 +1,13 @@
 import React from "react";
 import "./index.scss";
 
-const Score = (props: { children: React.ReactNode }) => {
-  return <div className="score">{props.children}</div>;
+const Score = (props: {timerValue: string; counterValue: number}) => {
+  return (
+    <div className="score">
+      <div className="score-item score-item_timer">{props.timerValue}</div>
+      <div className="score-item score-item_counter">{props.counterValue}</div>
+    </div>
+  );
 }
 
 export default React.memo(Score);
