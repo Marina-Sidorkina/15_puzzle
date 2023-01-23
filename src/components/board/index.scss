@@ -1,0 +1,13 @@
+.board {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 310px;
+  height: 310px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #102027;
+  border: 1px solid #444c56;
+  border-radius: 2px;
+}
