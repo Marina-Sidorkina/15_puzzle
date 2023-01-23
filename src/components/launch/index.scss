@@ -1,0 +1,35 @@
+.launch {
+  display: block;
+  width: 310px;
+  height: 75px;
+  margin: 10px auto 0 auto;
+  background-color: #102027;
+  border: 1px solid #444c56;
+  border-radius: 2px;
+  text-shadow: 0 0 5px #2d333b, 0 0 1px #ffffff;
+
+  &-text {
+    display: block;
+    font-family: 'Noto Sans', serif;
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+    color: #acbac7;
+    line-height: 55px;
+    height: 55px;
+    width: 290px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #111111, #102027);
+    border: 1px solid #444c56;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  &-text:hover {
+    filter: brightness(125%);
+  }
+
+  &-text:active {
+    opacity: 0.7;
+  }
+}
