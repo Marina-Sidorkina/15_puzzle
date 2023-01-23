@@ -21,6 +21,15 @@ class GameState {
     this.winner = true;
   }
 
+  reset() {
+    this.winner = false;
+    this.movesCount = 0;
+    this.secondsPassed = 0;
+    this.minutesPassed = 0;
+    this.hoursPassed = 0;
+    this.inProcess = false;
+  }
+
   increaseCounter() {
     this.movesCount += 1;
   }

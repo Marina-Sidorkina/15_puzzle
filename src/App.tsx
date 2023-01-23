@@ -15,8 +15,8 @@ const App = () => {
       gameState.setInProcess(true);
     }, []),
     onResetClick: useCallback(() => {
-      boardState.shuffleTiles();
-      gameState.setInProcess(false);
+      gameState.reset();
+      boardState.resetTiles();
     }, [])
   };
 
@@ -25,7 +25,7 @@ const App = () => {
       <BoardContainer />
       <Launch onClick={callbacks.onLaunchClick} />
       <ScoreContainer />
-      <Reset onClick={() => {}}/>
+      <Reset onClick={callbacks.onResetClick}/>
     </Layout>
   )
 };
