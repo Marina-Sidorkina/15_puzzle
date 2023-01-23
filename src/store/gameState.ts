@@ -7,9 +7,14 @@ class GameState {
   secondsPassed = 0;
   minutesPassed = 0;
   hoursPassed = 0;
+  inProcess = false;
 
   constructor() {
     makeAutoObservable(this);
+  }
+
+  setInProcess(value: boolean) {
+    this.inProcess = value;
   }
 
   setWinner() {

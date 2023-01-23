@@ -47,3 +47,22 @@ export function checkMoveAbility(tileIndex: number, emptyIndex: number) {
   return emptyCellCoords.x === tileCellCoords.x &&
       Math.abs(emptyCellCoords.y - tileCellCoords.y) === 1;
 }
+
+const generateRandomNumber = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max + 1 - min) + min);
+};
+
+export const shuffleArray = (array: Array<number>) => {
+  let result = array.slice();
+
+  for(let i = 0; i < array.length; i++) {
+    let start = 0;
+    let index = generateRandomNumber(start, i);
+    let first = result[i];
+    let second = result[index];
+
+    result.splice(i, 1, second);
+    result.splice(index, 1, first);
+  }
+  return result;
+}

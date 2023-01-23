@@ -11,7 +11,7 @@ const BoardContainer = () => {
   const callbacks = {
     onTileClick: useCallback((tileIndex: number, tileValue: number) => {
       const isMovable = checkMoveAbility(tileIndex, boardState.emptyIndex);
-      if(isMovable) {
+      if(isMovable && gameState.inProcess) {
         boardState.replaceTiles(tileIndex, tileValue);
         gameState.increaseCounter();
       }

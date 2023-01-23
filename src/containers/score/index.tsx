@@ -6,10 +6,12 @@ import gameState from "../../store/gameState";
 
 const ScoreContainer = () => {
   useEffect(() => {
-    const timerIndex = setInterval(() => gameState.increaseTimer(), 1000);
+    let timerIndex: NodeJS.Timer;
+
+    if (gameState.inProcess) timerIndex = setInterval(() => gameState.increaseTimer(), 1000);
 
     return () => clearInterval(timerIndex);
-  }, []);
+  }, [gameState.inProcess]);
 
   const timerValue = useMemo(() => {
     return getFormattedTime(
