@@ -4,8 +4,8 @@ import "./index.scss";
 const Score = (props: {timerValue: string; counterValue: number}) => {
   return (
     <div className="score">
-      <div className="score-item score-item_timer">{props.timerValue}</div>
-      <div className="score-item score-item_counter">{props.counterValue}</div>
+      <div className="score-item">{props.timerValue}</div>
+      <div className="score-item">{props.counterValue}</div>
     </div>
   );
 }

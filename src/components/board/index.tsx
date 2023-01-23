@@ -8,9 +8,9 @@ type TProps = {
 
 const Board = (props: TProps) => {
   return (
-      <div className="board">
-        {props.elements.map((item, index) => props.render(item, index))}
-      </div>
+    <div className="board">
+      {props.elements.map((item, index) => props.render(item, index))}
+    </div>
   );
 }
 

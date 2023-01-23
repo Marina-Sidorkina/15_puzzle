@@ -1,15 +1,15 @@
 html, body {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.page {
-  margin: 0 auto;
+.puzzle {
+  height: 100vh;
   padding-top: 10px;
   background: linear-gradient(to left, #111111, #102027, #111111, #102027, #111111, #102027, #111111, #102027, #111111, #102027);
 }
 
-.fifteen-puzzle {
+.puzzle-container {
   width: 310px;
   margin: 0 auto;
 }

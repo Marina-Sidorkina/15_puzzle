@@ -1,5 +1,7 @@
 .launch {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 310px;
   height: 75px;
   margin: 10px auto 0 auto;
@@ -8,14 +10,14 @@
   border-radius: 2px;
   text-shadow: 0 0 5px #2d333b, 0 0 1px #ffffff;
 
-  &-text {
-    display: block;
+  &-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Noto Sans', serif;
     font-size: 35px;
     font-weight: 700;
-    text-align: center;
     color: #acbac7;
-    line-height: 55px;
     height: 55px;
     width: 290px;
     margin: 0 auto;
@@ -25,11 +27,11 @@
     cursor: pointer;
   }
 
-  &-text:hover {
+  &-button:hover {
     filter: brightness(125%);
   }
 
-  &-text:active {
+  &-button:active {
     opacity: 0.7;
   }
 }

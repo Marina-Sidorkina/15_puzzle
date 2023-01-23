@@ -14,9 +14,9 @@ const ScoreContainer = () => {
 
   const timerValue = useMemo(() => {
     return getFormattedTime(
-        timerState.secondsPassed,
-        timerState.minutesPassed,
-        timerState.hoursPassed
+      timerState.secondsPassed,
+      timerState.minutesPassed,
+      timerState.hoursPassed
     );
   }, [timerState.secondsPassed, timerState.minutesPassed, timerState.hoursPassed])
 

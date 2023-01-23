@@ -1,16 +1,17 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
 import BoardContainer from "./containers/board";
-import LaunchButton from "./components/launch";
+import Launch from "./components/launch";
 import ScoreContainer from "./containers/score";
+import Layout from "./components/layout";
 
 const App = () => {
   return  (
-      <div className="fifteen-puzzle">
-        <BoardContainer />
-        <LaunchButton onClick={() => {}} />
-        <ScoreContainer />
-      </div>
+    <Layout>
+      <BoardContainer />
+      <Launch onClick={() => {}} />
+      <ScoreContainer />
+    </Layout>
   )
 };
 

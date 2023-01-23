@@ -13,10 +13,11 @@ const Tile = (props: TProps) => {
   let classValue = check ? 'tile-element tile-element_zero' : 'tile-element';
 
   return (
-      <div className="tile"
-           onClick={() => {props.onClick(props.tileIndex, props.tileValue)}}>
-        <div className={classValue}>{check ? '' : props.tileValue}</div>
+    <div className="tile" onClick={() => {props.onClick(props.tileIndex, props.tileValue)}}>
+      <div className={classValue}>
+        {check ? '' : props.tileValue}
       </div>
+    </div>
   );
 }
 

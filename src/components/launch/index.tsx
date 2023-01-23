@@ -1,12 +1,12 @@
 import React from "react";
 import "./index.scss";
 
-const LaunchButton = (props: {onClick: Function}) => {
+const Launch = (props: {onClick: Function}) => {
   return (
-      <button className="launch" onClick={ () => props.onClick() }>
-        <span className="launch-text">Начать игру</span>
-      </button>
+    <div className="launch" onClick={ () => props.onClick() }>
+      <button className="launch-button">Начать игру</button>
+    </div>
   );
 }
 
-export default React.memo(LaunchButton);
+export default React.memo(Launch);
